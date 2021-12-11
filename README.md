@@ -5,6 +5,7 @@
 参考https://github.com/surmon-china/nodepress
 
 刚开始不习惯TypeORM，想使用传统sql来请求数据库，后面使用TypeORM也还习惯，原生兼容Nest、代码entity可以和数据库打通、API也还简单
+查询参考：https://typeorm.biunav.com/zh/find-options.html#%E5%9F%BA%E7%A1%80%E9%80%89%E9%A1%B9
 ### 接口概述
 
 - HTTP 状态码（详见 [errors] ）
