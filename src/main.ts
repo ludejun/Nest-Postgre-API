@@ -62,7 +62,7 @@ async function bootstrap() {
     new ErrorInterceptor(new Reflector()),
     new LoggingInterceptor(),
   );
-  return await app.listen(3000);
+  return await app.listen(APP_CONFIG.APP.PORT);
 }
 bootstrap().then(() => {
   console.info(

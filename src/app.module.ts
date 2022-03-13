@@ -17,7 +17,7 @@ import { OriginMiddleware } from '@app/middlewares/origin.middleware';
 // 公共模块
 // import { DatabaseModule } from '@app/processors/database/database.module'
 // import { CacheModule } from '@app/processors/cache/cache.module'
-import { HelperModule } from '@app/processors/helper/helper.module'
+import { HelperModule } from '@app/processors/helper/helper.module';
 
 // 业务模块（核心）
 import { AuthModule } from '@app/modules/auth/auth.module';

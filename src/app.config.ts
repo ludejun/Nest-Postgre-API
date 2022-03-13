@@ -10,6 +10,7 @@ const APP_ROOT_PATH = __dirname;
 const PROJECT_ROOT_PATH = path.join(APP_ROOT_PATH, '..');
 const FE_PATH = path.join(PROJECT_ROOT_PATH, '..', 'surmon.me');
 const FE_PUBLIC_PATH = path.join(FE_PATH, 'public');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageJSON = require(path.resolve(PROJECT_ROOT_PATH, 'package.json'));
 
 export const APP = {
