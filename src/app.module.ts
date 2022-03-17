@@ -22,6 +22,7 @@ import { HelperModule } from '@app/processors/helper/helper.module';
 // 业务模块（核心）
 import { AuthModule } from '@app/modules/auth/auth.module';
 import { CatsModule } from '@app/modules/cats/cats.module';
+import { DB } from './app.config';
 // import { UsersModule } from './modules/users/users.module';
 
 @Module({
@@ -30,14 +31,8 @@ import { CatsModule } from '@app/modules/cats/cats.module';
 
     // 加载连接数据库
     TypeOrmModule.forRoot({
-      type: 'postgres', // 数据库类型
-      host: 'localhost', // 数据库ip地址
-      port: 5432, // 端口
-      username: 'postgres', // 登录名
-      password: 'test', // 密码
-      database: 'Note', // 数据库名称
+      ...DB,
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // 扫描本项目中.entity.ts或者.entity.js的文件
-      synchronize: true, // 定义数据库表结构与实体类字段同步(这里一旦数据库少了字段就会自动加入,根据需要来使用)
     }),
     CatsModule,
     AuthModule,

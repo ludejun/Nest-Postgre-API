@@ -5,6 +5,8 @@
  */
 
 import path from 'path';
+import { ConnectionOptions } from 'typeorm';
+import { environment } from './app.environment';
 
 const APP_ROOT_PATH = __dirname;
 const PROJECT_ROOT_PATH = path.join(APP_ROOT_PATH, '..');
@@ -49,6 +51,32 @@ export const AUTH = {
   jwtTokenSecret: '!!important',
   defaultPassword: 'root',
 };
+
+export const DB = {
+  type: 'postgres', // 数据库类型
+  host: 'localhost', // 数据库ip地址
+  port: 5432, // 端口
+  username: 'postgres', // 登录名
+  password: 'test', // 密码
+  database: 'Nest_API', // 数据库名称
+  ...{
+    production: {
+      host: '***',
+      port: 5432,
+      username: 'postgres',
+      password: '***',
+    },
+    test: {
+      host: '***',
+      password: '***',
+    },
+    development: {
+      dropSchema: false, // 每次建立连接时是否删除架构，不要在生产环境中使用它，否则将丢失所有生产数据
+      logging: true, // 是否启用日志记录
+      synchronize: true, // 定义数据库表结构与实体类字段同步(这里一旦数据库少了字段就会自动加入,根据需要来使用)
+    },
+  }[environment],
+} as ConnectionOptions;
 
 export const EMAIL = {
   account: 'your email address, e.g. i@surmon.me',
