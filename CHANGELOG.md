@@ -43,5 +43,5 @@
 - Real tests for the Cats module: 9 tests covering both the service and the
   controller with the repository mocked, where the previous specs were Nest CLI
   stubs that could not resolve their own dependencies.
-- `README_EN.md`, `CONTRIBUTING.md` and this changelog.
+- `README_CN.md`, `CONTRIBUTING.md` and this changelog.
 - `ci.yml`: lint, typecheck, test and build on Node 20 and 22.

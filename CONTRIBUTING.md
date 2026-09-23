@@ -74,7 +74,7 @@ Run `pnpm format` before committing so Prettier settles the formatting; CI does 
 
 - **Commit messages** follow [Conventional Commits](https://www.conventionalcommits.org/):
   `fix:`, `feat:`, `docs:`, `chore:`, `refactor:`, `test:`.
-- **Both READMEs.** If a change affects the documented API, update `README.md` _and_ `README_EN.md`.
+- **Both READMEs.** If a change affects the documented API, update `README.md` _and_ `README_CN.md`.
 - **Declare what you import.** Four packages were imported without ever appearing in
   `package.json`; they only resolved through hoisting. pnpm's layout catches this, so do not work
   around a missing module by reaching for a hoisted copy.
@@ -163,7 +163,7 @@ pnpm build       # 编译到 dist/
 ## 一些约定
 
 - **提交信息**遵循 [Conventional Commits](https://www.conventionalcommits.org/)：`fix:`、`feat:`、`docs:`、`chore:`、`refactor:`、`test:`。
-- **两份 README。** 如果改动影响了对外 API，请同时更新 `README.md` 和 `README_EN.md`。
+- **两份 README。** 如果改动影响了对外 API，请同时更新 `README.md` 和 `README_CN.md`。
 - **用了什么就声明什么。** 之前有四个包被 import 却从没出现在 `package.json` 里，靠依赖提升侥幸能跑。pnpm 的严格目录结构能抓到这类问题，请不要绕过去用提升出来的副本。
 - **不要吞掉错误。** `catch (err) { return err }` 会把 `Error` 对象当成 200 响应发给客户端。让错误抛到 filter，由它转成文档里定义的结构。
 - **entity 要和 DTO 保持一致。** entity 上缺的列，写入时会被静默丢弃。
