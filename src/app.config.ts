@@ -5,14 +5,14 @@
  */
 
 import path from 'path';
-import { ConnectionOptions } from 'typeorm';
+import { DataSourceOptions } from 'typeorm';
 import { environment } from './app.environment';
 
 const APP_ROOT_PATH = __dirname;
 const PROJECT_ROOT_PATH = path.join(APP_ROOT_PATH, '..');
 const FE_PATH = path.join(PROJECT_ROOT_PATH, '..', 'surmon.me');
 const FE_PUBLIC_PATH = path.join(FE_PATH, 'public');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const packageJSON = require(path.resolve(PROJECT_ROOT_PATH, 'package.json'));
 
 export const APP = {
@@ -76,7 +76,7 @@ export const DB = {
       synchronize: true, // 定义数据库表结构与实体类字段同步(这里一旦数据库少了字段就会自动加入,根据需要来使用)
     },
   }[environment],
-} as ConnectionOptions;
+} as DataSourceOptions;
 
 export const EMAIL = {
   account: 'your email address, e.g. i@surmon.me',

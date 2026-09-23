@@ -4,7 +4,6 @@
  * @module module/auth/module
  */
 
-import jwt from 'jsonwebtoken';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
@@ -20,7 +19,7 @@ import * as APP_CONFIG from '@app/app.config';
     TypeOrmModule.forFeature([AuthEntity]),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      privateKey: APP_CONFIG.AUTH.jwtTokenSecret as jwt.Secret,
+      privateKey: APP_CONFIG.AUTH.jwtTokenSecret as string,
       signOptions: {
         expiresIn: APP_CONFIG.AUTH.expiresIn as number,
       },

@@ -1,14 +1,58 @@
-## Nest-Postgre-API
+<h1 align="center">Nest-Postgre-API</h1>
 
-*Nest + Postgre + JWT + TypeORM* 基于Nest和传统数据库Postgre的Node Restful API脚手架，适用于基础生产项目
+<p align="center">
+  面向生产的 Node REST API 脚手架：Nest + PostgreSQL + TypeORM + JWT。
+</p>
 
-参考https://github.com/surmon-china/nodepress
+<p align="center">
+  <img src="https://img.shields.io/badge/nest-12-e0234e?logo=nestjs&logoColor=white" alt="nest 12" />
+  <img src="https://img.shields.io/badge/typeorm-0.3-fe0902" alt="typeorm 0.3" />
+  <img src="https://img.shields.io/badge/postgres-8-4169e1?logo=postgresql&logoColor=white" alt="postgres" />
+  <img src="https://img.shields.io/badge/typescript-5.9-3178c6?logo=typescript&logoColor=white" alt="typescript 5.9" />
+  <img src="https://img.shields.io/badge/pnpm-10-f69220?logo=pnpm&logoColor=white" alt="pnpm 10" />
+  <br />
+  <a href="https://github.com/ludejun/Nest-Postgre-API/actions/workflows/ci.yml"><img src="https://github.com/ludejun/Nest-Postgre-API/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/ludejun/Nest-Postgre-API/blob/master/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PR-欢迎提交-brightgreen.svg" alt="欢迎 PR" /></a>
+</p>
 
-刚开始不习惯TypeORM，想使用传统sql来请求数据库，后面使用TypeORM也还习惯，原生兼容Nest、代码entity可以和数据库打通、API也还简单
-查询参考：https://typeorm.biunav.com/zh/find-options.html#%E5%9F%BA%E7%A1%80%E9%80%89%E9%A1%B9
+<p align="center">
+  <a href="./CHANGELOG.md">更新日志</a>
+  ·
+  <a href="./CONTRIBUTING.md">贡献指南</a>
+  ·
+  <a href="./README_EN.md">English</a>
+</p>
 
-服务器端口及数据库配置、Auth配置等详见ap.config.ts
-### 接口概述
+---
+
+_Nest + PostgreSQL + JWT + TypeORM_ —— 基于 Nest 和传统数据库 PostgreSQL 的 Node RESTful API 脚手架，适用于基础生产项目。
+
+参考 https://github.com/surmon-china/nodepress
+
+刚开始不习惯 TypeORM，想使用传统 SQL 来请求数据库，后面使用 TypeORM 也还习惯：原生兼容 Nest、entity 可以和数据库打通、API 也还简单。查询参考 https://typeorm.biunav.com/zh/find-options.html
+
+服务器端口及数据库配置、Auth 配置等详见 `src/app.config.ts`。
+
+## 环境要求
+
+Node >= 20，PostgreSQL，以及 [pnpm](https://pnpm.io/)。
+
+## 命令
+
+```shell
+pnpm install
+pnpm start:dev     # 开发环境，watch 模式
+pnpm build         # 编译到 dist/
+pnpm start:prod    # 运行编译产物
+
+pnpm lint          # eslint
+pnpm typecheck     # tsc --noEmit
+pnpm test          # vitest（单元测试）
+pnpm test:e2e      # vitest（e2e，需要可用的数据库）
+pnpm format        # prettier --write
+```
+
+## 接口概述
 
 - HTTP 状态码（详见 [errors] ）
 
@@ -171,3 +215,11 @@ $ yarn update-geo-db
 ```
 
 打开http://localhost:8000 即可看到数据返回
+
+## 参与贡献
+
+见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+
+## 开源协议
+
+[MIT](./LICENSE)

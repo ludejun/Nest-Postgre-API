@@ -58,9 +58,7 @@ interface ITransformConfigObject {
   [key: string]: string | number | boolean;
 }
 export type TTransformConfig =
-  | EQueryParamsField
-  | string
-  | ITransformConfigObject;
+  EQueryParamsField | string | ITransformConfigObject;
 
 // 验证器结构
 interface IValidateError {
@@ -126,8 +124,9 @@ export const QueryParams = createParamDecorator(
 
     // 初始参数
     const date = request.query.date;
-    const paramsId = request.params[transformConfig.paramsId as string];
-    const [page, per_page, sort, state, ppublic, origin] = [
+    // Reserved for the id-based lookups this decorator does not implement yet.
+    const _paramsId = request.params[transformConfig.paramsId as string];
+    const [page, per_page, _sort, _state, _ppublic, _origin] = [
       request.query.page || transformConfig.page,
       request.query.per_page,
       request.query.sort,

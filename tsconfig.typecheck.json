@@ -1,0 +1,13 @@
+{
+  // The build (tsconfig.build.json) emits CommonJS, whose `node` resolution is
+  // too old to read Vitest's type exports. Type-checking runs against the same
+  // sources with a modern resolver instead.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "incremental": false,
+    "types": ["node", "vitest/globals"]
+  }
+}
