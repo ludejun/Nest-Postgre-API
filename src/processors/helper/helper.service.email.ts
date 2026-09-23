@@ -6,6 +6,7 @@
  */
 
 import nodemailer from 'nodemailer';
+import type { Transporter } from 'nodemailer';
 import { Injectable } from '@nestjs/common';
 import * as APP_CONFIG from '@app/app.config';
 
@@ -19,7 +20,7 @@ export interface IEmailOptions {
 
 @Injectable()
 export class EmailService {
-  private transporter: nodemailer;
+  private transporter: Transporter;
   private clientIsValid: boolean;
 
   constructor() {

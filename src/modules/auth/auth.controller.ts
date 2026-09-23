@@ -5,14 +5,7 @@
  * @author Surmon <https://github.com/surmon-china>
  */
 
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  UseGuards,
-  HttpStatus,
-} from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, HttpStatus } from '@nestjs/common';
 import { JwtAuthGuard } from '@app/guards/auth.guard';
 import { IPService } from '@app/processors/helper/helper.service.ip';
 // import { EmailService } from '@app/processors/helper/helper.service.email';
@@ -44,13 +37,13 @@ export class AuthController {
     @Body() body,
   ): Promise<ITokenResult> {
     const { name, password } = body;
-    console.log(name, password);
     const token = await this.authService.login({ name, password });
     const ipLocation = await this.ipService.query(ip);
-    const subject = '博客有新的登陆行为';
+    // 登陆提醒邮件（下方发送逻辑暂时注释）
+    const _subject = '博客有新的登陆行为';
     const city = ipLocation?.city || '未知城市';
     const country = ipLocation?.country || '未知国家';
-    const content = `来源 IP：${ip}，地理位置为：${country} - ${city}`;
+    const _content = `来源 IP：${ip}，地理位置为：${country} - ${city}`;
     // this.emailService.sendMail({
     //   subject,
     //   to: APP_CONFIG.EMAIL.admin,

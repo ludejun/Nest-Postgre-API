@@ -7,7 +7,8 @@
 
 // 内存占用太大（~100+M）暂时移除了
 // import * as geoip from 'geoip-lite';
-import { Injectable, HttpService } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { HttpService } from '@nestjs/axios';
 import * as APP_CONFIG from '@app/app.config';
 
 export type IP = string;

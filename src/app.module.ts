@@ -4,7 +4,6 @@
  * @module app/module
  */
 
-import { APP_INTERCEPTOR } from '@nestjs/core';
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';

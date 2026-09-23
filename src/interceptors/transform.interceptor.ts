@@ -44,9 +44,10 @@ import * as TEXT from '@app/constants/text.constant';
  * @classdesc 当控制器所需的 Promise service 成功响应时，将在此被转换为标准的数据结构 IHttpResultPaginate
  */
 @Injectable()
-export class TransformInterceptor<T>
-  implements NestInterceptor<T, THttpSuccessResponse<T>>
-{
+export class TransformInterceptor<T> implements NestInterceptor<
+  T,
+  THttpSuccessResponse<T>
+> {
   constructor(private readonly reflector: Reflector) {}
 
   intercept(

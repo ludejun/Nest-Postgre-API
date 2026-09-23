@@ -9,7 +9,8 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { decodeBase64, decodeMd5 } from '@app/utils/codec';
+import { decodeMd5 } from '@app/utils/codec';
+import { HttpUnauthorizedError } from '@app/errors/unauthorized.error';
 import { ITokenResult } from './auth.interface';
 import { AuthEntity } from './auth.entity';
 import * as APP_CONFIG from '@app/app.config';
@@ -45,8 +46,9 @@ export class AuthService {
   }
 
   // 获取管理员信息
-  public getAdminInfo(): Promise<AuthEntity> {
-    return this.authRepository.findOne();
+  public getAdminInfo(): Promise<AuthEntity | null> {
+    // TypeORM 0.3 之后 findOne() 必须带条件，取第一条用 find + take
+    return this.authRepository.findOne({ where: {} });
   }
 
   // // 修改管理员信息
@@ -92,10 +94,15 @@ export class AuthService {
 
   // 登陆
   public async login(auth): Promise<any> {
-    const { password } = await this.authRepository.findOne({ name: auth.name });
+    const admin = await this.authRepository.findOne({
+      where: { name: auth.name },
+    });
+    if (!admin) {
+      throw new HttpUnauthorizedError();
+    }
+    const { password } = admin;
     // console.log(result, auth.name);
     const extantPassword = this.getExtantPassword(auth);
-    console.log(password, extantPassword);
     // const loginPassword = decodeMd5(decodeBase64(password));
 
     if (password === extantPassword) {

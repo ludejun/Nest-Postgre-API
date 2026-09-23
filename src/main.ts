@@ -4,7 +4,7 @@
  * @module app/main
  */
 import helmet from 'helmet';
-import bodyParser from 'body-parser';
+import express from 'express';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import { NestFactory, Reflector } from '@nestjs/core';
@@ -52,8 +52,8 @@ async function bootstrap() {
   );
   app.use(helmet());
   app.use(compression());
-  app.use(bodyParser.json({ limit: '1mb' }));
-  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(express.json({ limit: '1mb' }));
+  app.use(express.urlencoded({ extended: true }));
   app.use(rateLimit({ max: 1000, windowMs: 15 * 60 * 1000 }));
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalPipes(new ValidationPipe());

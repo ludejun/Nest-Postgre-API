@@ -5,7 +5,9 @@
  * @author Surmon <https://github.com/surmon-china>
  */
 
-import { Module, Global, HttpModule } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
+// HttpModule moved out of @nestjs/common into @nestjs/axios in Nest 8.
+import { HttpModule } from '@nestjs/axios';
 // import { GoogleService } from './helper.service.google';
 // import { AkismetService } from './helper.service.akismet';
 // import { CloudStorageService } from './helper.service.cs';
